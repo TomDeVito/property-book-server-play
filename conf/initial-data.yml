@@ -1,0 +1,47 @@
+
+users:
+
+    - !!models.UserAccount
+        email:      admin@admin.com
+        name:       admin
+        verifiedStatus: NC
+
+    - !!models.UserAccount
+        email:      tdevito@netcentric.com
+        name:       tdevito
+        verifiedStatus: C
+
+    - !!models.UserAccount
+        email:      nobody@nobody.com
+        name:       nobody
+        verifiedStatus: NC
+
+    - !!models.UserAccount
+        email:      test@test.com
+        name:       tester123
+        verifiedStatus: WC
+
+# Item
+
+items:
+
+    - !!models.Item
+        name:       monitor
+        make:       dell
+        model:      E2313H
+        serial:     CN-038RYR-772872-2AN-C2AS
+        upc:        NT 641
+
+    - !!models.Item
+        name:       laptop
+        make:       dell
+        model:      Latitude E5530
+        serial:     CJHCBW1
+        upc:        NT 664
+
+    - !!models.Item
+        name:       Replicator
+        make:       dell
+        model:      DP/N035RXK
+        serial:     CN-035RXK-12961-2BK-2657-A00
+        upc:        NT 665

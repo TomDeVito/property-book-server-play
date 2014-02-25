@@ -1,0 +1,35 @@
+# Items schema
+
+# --- !Ups
+
+CREATE TABLE user_account (
+    name varchar(255) NOT NULL,
+    email varchar(255),
+    constraint pk_user_account primary key (name)
+);
+
+CREATE TABLE item (
+    name varchar(255),
+    make varchar(255),
+    model varchar(255),
+    serial varchar(255) NOT NULL,
+    upc varchar(255),
+    assigned_to_name varchar(255) NOT NULL default 'none',
+    constraint pk_item primary key (serial),
+);
+
+CREATE TABLE item_history (
+   id bigint not null AUTO_INCREMENT,
+   user varchar(255),
+   changed_date timestamp,
+   item_serial varchar(255),
+   constraint pk_item_history primary key(id)
+);
+
+ALTER TABLE item add constraint fk_item_assignedTo foreign key (assigned_to_name) references user_account (name);
+ALTER TABLE item_history add constraint fk_item_history_item_name foreign key (item_serial) references item (serial);
+# --- !Downs
+
+DROP TABLE IF EXISTS user_account;
+DROP TABLE IF EXISTS item;
+DROP TABLE IF EXISTS item_history;

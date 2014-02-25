@@ -1,0 +1,26 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                              controllers.Home.index()
+
+# Items
+GET     /api/items                      controllers.Items.getItems()
+GET     /api/items/:serial              controllers.Items.getItem(serial: String)
+POST    /api/items                      controllers.Items.createItem()
+PUT     /api/items/:serial              controllers.Items.updateItem(serial: String)
+DELETE  /api/items/:serial              controllers.Items.deleteItem(serial: String)
+GET     /api/items/:serial/history      controllers.Items.getItemHistory(serial: String)
+
+
+# Users
+GET     /api/users                      controllers.UserAccounts.getUsers(userNamesOnly: Boolean ?= false)
+GET     /api/users/:username            controllers.UserAccounts.getUser(username: String)
+GET     /api/users/:username/items      controllers.UserAccounts.getUserItems(username: String)
+PATCH   /api/users/:username            controllers.UserAccounts.handlePatchRequest(username: String)
+
+# History
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
